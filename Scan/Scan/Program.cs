@@ -15,12 +15,12 @@ namespace Scan
 
         static void Main(string[] args)
         {
-            string dirName = " ";
-            ScanLogic.Scan(dirName);
+    
             Console.WriteLine("Enter the catalog's name, please");
             try
             {
-                dirName = Console.ReadLine();
+                string dirName = Console.ReadLine();
+                ScanLogic.Scan(dirName);
             }
             catch (IOException)
             {
@@ -36,6 +36,8 @@ namespace Scan
             }
 
         }
+
+        
     }
    
 }

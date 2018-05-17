@@ -3,38 +3,41 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+
 
 namespace Library
 {
     public static class ScanLogic
     {
-           
-        public static List<string> Scan (string dirName)
+        public static void Scan(object dirName)
         {
- 
-            List<string> allFolders = new List<string>(Directory.EnumerateDirectories(dirName));
+            var newDirName = dirName.ToString();
 
-            if (Directory.Exists(dirName))
+            if (Directory.Exists(newDirName))
             {
-                Console.WriteLine("Catalogs:");
-
-                foreach (var s in allFolders)
+                try
                 {
-                   
-                    allFolders.AddRange(Scan(s));
+                    Console.WriteLine(dirName);
+
+                    foreach (var s in Directory.GetDirectories(newDirName))
+                    {
+                        var delegateNew = new ParameterizedThreadStart(Scan);
+
+                        Thread thread = new Thread(delegateNew);
+
+                        thread.Start(s);
+                    }
                 }
 
-                Console.WriteLine("Files:");
-                string[] files = Directory.GetFiles(dirName);
-
-                foreach (string s in files)
+                catch (UnauthorizedAccessException)
                 {
-                    Console.WriteLine(s);
+                    Console.WriteLine("Access Expention");
                 }
+
             }
-            return allFolders;
         }
-
     }
 }
+   

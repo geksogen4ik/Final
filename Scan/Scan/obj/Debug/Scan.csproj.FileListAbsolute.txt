@@ -5,3 +5,5 @@ D:\Final_Task\Final\Scan\Scan\obj\Debug\Scan.csprojResolveAssemblyReference.cach
 D:\Final_Task\Final\Scan\Scan\obj\Debug\Scan.csproj.CoreCompileInputs.cache
 D:\Final_Task\Final\Scan\Scan\obj\Debug\Scan.exe
 D:\Final_Task\Final\Scan\Scan\obj\Debug\Scan.pdb
+D:\Final_Task\Final\Scan\Scan\bin\Debug\Library.dll
+D:\Final_Task\Final\Scan\Scan\bin\Debug\Library.pdb
