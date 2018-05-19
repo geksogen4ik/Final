@@ -15,7 +15,6 @@ namespace Scan
 
         static void Main(string[] args)
         {
-    
             Console.WriteLine("Enter the catalog's name, please");
             try
             {
